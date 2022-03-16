@@ -1,25 +1,88 @@
 .start-block {
+	position: relative;
 	background: url(noise_lines_transparent@2X.png), radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%),
 		#211f20;
-	min-height: 100vh;
-	&__container {
+	padding: 180px 0 0 0;
+	@media (max-width: 62em) {
+		padding: 0px;
 	}
-
-	&__content {
+	&__container {
+		display: flex;
+		justify-content: space-between;
+		@media (max-width: 62em) {
+			flex-direction: column;
+			align-items: center;
+		}
+		@media (max-width: 36em) {
+			padding: 0 10px;
+		}
 	}
 
 	&__info {
+		flex: 0 0 41.834%;
+		max-width: 29.6875rem;
+		margin: 10.1875rem 30px 0px 0px;
+		@media (max-width: 62em) {
+			margin: 150px 0px 100px 0px;
+			text-align: center;
+		}
+	}
+	&__info :not(:last-child) {
+		margin-bottom: 2.625rem;
 	}
 
 	&__title {
+		color: $white;
+		max-width: 22.375rem;
+		text-align: left;
+		@media (max-width: 20em) {
+			max-width: 12.5rem;
+			text-align: center;
+			margin: 0 auto;
+		}
 	}
 
 	&__description {
+		font-family: "Arial";
+		line-height: 160%;
+		color: #cdcdcd;
+		text-align: left;
+		@media (max-width: 36em) {
+			text-align: center;
+		}
 	}
 
 	&__btn {
+		font-size: 1.0625rem;
+		line-height: 130%;
+		background-color: $colorPrimary;
+		color: $colorBtns;
+		letter-spacing: 0.06em;
+		padding: 0.883em 2.647em;
+		border-radius: 100px;
 	}
 
 	&__image {
+		position: relative;
+		flex: 0 1 58.166%;
+		padding-bottom: 60.666%;
+		align-self: flex-end;
+		@media (max-width: 62em) {
+			align-self: flex-end;
+			width: 77.101%;
+			padding-bottom: 80.353%;
+		}
+		@media (max-width: 36em) {
+			width: 81.25%;
+			padding-bottom: 84.688%;
+		}
+	}
+	&__image img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		// object-fit: cover;
 	}
 }

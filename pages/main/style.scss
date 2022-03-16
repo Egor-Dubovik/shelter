@@ -45,13 +45,17 @@ body.lock {
 h1 {
 	font-size: 2.75rem; //44px
 	line-height: 130%;
+	letter-spacing: 0.06em;
+	@media (max-width: 20em) {
+		font-size: 1.5625rem;
+	}
 }
 h2 {
 	font-size: 2.1875rem; //35px
 	line-height: 130%;
 	letter-spacing: 0.06em;
+	color: colorH24;
 	@media (max-width: 36em) {
-		// 576/16
 		font-size: 1.5625rem;
 	}
 }
@@ -64,6 +68,7 @@ h4 {
 	font-size: 1.25rem; //20
 	line-height: 115%; //23px
 	letter-spacing: 0.06em;
+	color: colorH24;
 }
 a {
 	color: #fafafa;
