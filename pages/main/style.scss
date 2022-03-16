@@ -1,0 +1,83 @@
+@import "../../scss/module/base/nullstyle";
+
+//шрифты
+@import "../../scss/module/base/_fonts";
+//икончный шрифт
+@import "../../scss/module/base/iconsFonts";
+//переменные
+@import "../../scss/module/base/_vars";
+//===============================================================================
+
+body {
+	position: relative;
+	line-height: 1;
+	background-color: $mainBgColor;
+	color: $mainColor;
+	font-family: $fontFamily;
+	// Переводим в REM, делим размер по макету (14px)
+	// на 16 (размер шрифта по умолчанию)
+	font-size: $fontSize;
+}
+body.lock {
+	overflow: hidden;
+}
+.blackout-screan {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(41, 41, 41, 0.6);
+	opacity: 0;
+	visibility: hidden;
+	transition: 0.5s ease-out 0s;
+}
+.blackout-screan.active {
+	opacity: 1;
+	visibility: visible;
+	transition: 0.5s ease-in 0.1s;
+}
+[class*="__container"] {
+	max-width: $maxWidthContainer;
+	padding: 0 $containerPadding;
+	margin: 0 auto;
+}
+h1 {
+	font-size: 2.75rem; //44px
+	line-height: 130%;
+}
+h2 {
+	font-size: 2.1875rem; //35px
+	line-height: 130%;
+	letter-spacing: 0.06em;
+	@media (max-width: 36em) {
+		// 576/16
+		font-size: 1.5625rem;
+	}
+}
+h3 {
+	font-size: 2rem; //32px
+	line-height: 110%;
+	letter-spacing: 0.06em;
+}
+h4 {
+	font-size: 1.25rem; //20
+	line-height: 115%; //23px
+	letter-spacing: 0.06em;
+}
+a {
+	color: #fafafa;
+}
+
+.wraper {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+@import "../../scss/module/header";
+.main {
+	flex: 1 1 auto;
+	@import "../../scss/module/start-block";
+}
+
+@import "../../scss/module/_footer";

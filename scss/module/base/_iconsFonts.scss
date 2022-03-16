@@ -1,0 +1,42 @@
+@font-face {
+	font-family: "icomoon";
+	src: url("../../assets/iconsFonts/icomoon.eot?2ja362");
+	src: url("../../assets/iconsFonts/icomoon.eot?2ja362#iefix") format("embedded-opentype"),
+		url("../../assets/iconsFonts/icomoon.ttf?2ja362") format("truetype"),
+		url("../../assets/iconsFonts/icomoon.woff?2ja362") format("woff"),
+		url("../../assets/iconsFonts/icomoon.svg?2ja362#icomoon") format("svg");
+	font-weight: normal;
+	font-style: normal;
+	font-display: block;
+}
+
+[class^="_icon-"],
+[class*=" _icon-"] {
+	/* use !important to prevent issues with browser extensions that change fonts */
+	font-family: "icomoon" !important;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+._icon-arrow_left:before {
+	content: "\e900";
+}
+._icon-arrow_right:before {
+	content: "\e901";
+}
+._icon-email:before {
+	content: "\e902";
+}
+._icon-marker:before {
+	content: "\e903";
+}
+._icon-phone:before {
+	content: "\e904";
+}

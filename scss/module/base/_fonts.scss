@@ -1,0 +1,30 @@
+@font-face {
+	font-family: "Arial";
+
+	src: url("../../assets/fonts/Arial.eot");
+	src: local("☺"), url("../../assets/fonts/Arial.woff") format("woff"),
+		url("../../assets/fonts/Arial.ttf") format("truetype"), url("../../assets/fonts/Arial.svg") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Georgia_regular";
+	src: url("../../assets/fonts/Georgia Regular font.eot");
+	src: local("☺"), url("../../assets/fonts/Georgia Regular font.woff") format("woff"),
+		url("../../assets/fonts/Georgia Regular font.ttf") format("truetype"),
+		url("../../assets/fonts/Georgia Regular font.svg") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Georgia_bold";
+
+	src: url("../../assets/fonts/georgia bold.eot");
+	src: local("☺"), url("../../assets/fonts/georgia bold.woff") format("woff"),
+		url("../../assets/fonts/georgia bold.ttf") format("truetype"),
+		url("../../assets/fonts/georgia bold.svg") format("svg");
+	font-weight: 700;
+	font-style: normal;
+}
