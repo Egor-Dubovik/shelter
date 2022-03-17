@@ -45,7 +45,6 @@ body.lock {
 h1 {
 	font-size: 2.75rem; //44px
 	line-height: 130%;
-
 	@media (max-width: 20em) {
 		font-size: 1.5625rem;
 		letter-spacing: 0.06em;
@@ -86,6 +85,7 @@ a {
 	@import "../../scss/module/start-block";
 	@import "../../scss/module/about";
 	@import "../../scss/module/help";
+	@import "../../scss/module/donation";
 }
 
 @import "../../scss/module/_footer";
