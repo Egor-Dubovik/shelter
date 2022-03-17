@@ -26,10 +26,16 @@
 		margin-right: 43px;
 		white-space: nowrap;
 		z-index: 4;
+		@media (max-width: 19.99em) {
+			margin-right: 20px;
+		}
 	}
 	&__logo-title {
 		color: $colorPrimary;
 		margin-bottom: 0.3125em;
+		@media (max-width: 19.99em) {
+			font-size: 1.5rem;
+		}
 	}
 
 	&__logo-subtitle {
@@ -38,6 +44,9 @@
 		line-height: 115.4%;
 		letter-spacing: 0.1em;
 		color: $white;
+		@media (max-width: 19.99em) {
+			font-size: 0.75rem;
+		}
 	}
 
 	&__menu {
@@ -48,7 +57,7 @@
 	&__body {
 		@media (max-width: 47.99em) {
 			position: fixed;
-			right: -100%;
+			right: -120%;
 			top: 0;
 			width: 320px;
 			height: 100vh;
