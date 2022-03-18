@@ -6,8 +6,9 @@
 @import "../../scss/module/base/iconsFonts";
 //переменные
 @import "../../scss/module/base/_vars";
+// swiper
+@import "../../scss/module/base/swiper-bundle.min.scss";
 //===============================================================================
-
 body {
 	font-family: $fontFamily;
 	line-height: 1;
@@ -84,6 +85,7 @@ a {
 	flex: 1 1 auto;
 	@import "../../scss/module/start-block";
 	@import "../../scss/module/about";
+	@import "../../scss/module/ourfrienfs";
 	@import "../../scss/module/help";
 	@import "../../scss/module/donation";
 }

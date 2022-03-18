@@ -14,7 +14,7 @@ function openMenu(...arr) {
 export const switchMenu = () => {
 	iconBurger.addEventListener("click", () => {
 		openMenu.apply(this, [menuBody, iconBurger, blackoutBlock]);
-		document.body.classList.add('lock');
+		document.body.classList.toggle('lock');
 	});
 
 	menuBody.addEventListener("click", (e) => {

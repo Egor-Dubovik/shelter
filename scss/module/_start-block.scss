@@ -59,6 +59,10 @@
 		letter-spacing: 0.06em;
 		padding: 0.883em 2.647em;
 		border-radius: 100px;
+		transition: 0.3s ease;
+	}
+	&__btn:hover {
+		background-color: $btnsHover;
 	}
 
 	&__image {
