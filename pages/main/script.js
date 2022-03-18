@@ -1,5 +1,6 @@
 import { switchMenu } from "../../js_modules/_menuSwitching.js";
-
+import { changeViewHeader } from "../../js_modules/_viewScrolHeder.js";
+changeViewHeader();
 switchMenu();
 
 
