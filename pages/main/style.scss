@@ -22,22 +22,6 @@ body {
 body.lock {
 	overflow: hidden;
 }
-.blackout-screan {
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
-	background-color: rgba(41, 41, 41, 0.6);
-	opacity: 0;
-	visibility: hidden;
-	transition: 0.5s ease-out 0s;
-}
-.blackout-screan.active {
-	opacity: 1;
-	visibility: visible;
-	transition: 0.5s ease-in 0.1s;
-}
 [class*="__container"] {
 	max-width: $maxWidthContainer;
 	padding: 0 $containerPadding;
@@ -76,9 +60,27 @@ a {
 }
 
 .wraper {
+	position: relative;
 	min-height: 100%;
 	display: flex;
 	flex-direction: column;
+}
+.blackout-screan {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(41, 41, 41, 0.6);
+	z-index: 1;
+	opacity: 0;
+	visibility: hidden;
+	transition: 0.5s ease-out 0s;
+}
+.blackout-screan.active {
+	opacity: 1;
+	visibility: visible;
+	transition: 0.5s ease-in 0.1s;
 }
 @import "../../scss/module/header";
 .main {

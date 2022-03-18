@@ -961,26 +961,6 @@ body.lock {
   overflow: hidden;
 }
 
-.blackout-screan {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: rgba(41, 41, 41, 0.6);
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: 0.5s ease-out 0s;
-  transition: 0.5s ease-out 0s;
-}
-
-.blackout-screan.active {
-  opacity: 1;
-  visibility: visible;
-  -webkit-transition: 0.5s ease-in 0.1s;
-  transition: 0.5s ease-in 0.1s;
-}
-
 [class*="__container"] {
   max-width: 1230px;
   padding: 0 15px;
@@ -1030,6 +1010,7 @@ a {
 }
 
 .wraper {
+  position: relative;
   min-height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1038,6 +1019,27 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.blackout-screan {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(41, 41, 41, 0.6);
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: 0.5s ease-out 0s;
+  transition: 0.5s ease-out 0s;
+}
+
+.blackout-screan.active {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: 0.5s ease-in 0.1s;
+  transition: 0.5s ease-in 0.1s;
 }
 
 .header {
