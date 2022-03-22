@@ -80,6 +80,8 @@ a {
 	visibility: visible;
 	transition: 0.5s ease-in 0.1s;
 }
+
+@import "../../scss/module/info-popap";
 @import "../../scss/module/header";
 .main {
 	flex: 1 1 auto;
