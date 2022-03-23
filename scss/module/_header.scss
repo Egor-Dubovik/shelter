@@ -96,9 +96,33 @@
 	&__link {
 		font-family: "Arial";
 		line-height: 160%;
+		position: relative;
+		padding: 15px 0;
 		@media (max-width: 47.99em) {
 			font-size: 2rem;
 		}
+	}
+	&__link::before {
+		content: "";
+		position: absolute;
+		right: 0;
+		bottom: 12px;
+		width: 0%;
+		height: 3px;
+		background-color: $colorPrimary;
+		transition: 0.4s ease-out;
+	}
+	&__link:hover::before {
+		content: "";
+		width: 100%;
+		left: 0;
+		transition: 0.4s ease-in;
+	}
+	&__link.active::before {
+		content: "";
+		width: 100%;
+		left: 0;
+		transition: 0.4s ease-in;
 	}
 
 	&__icon {

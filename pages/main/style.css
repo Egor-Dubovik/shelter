@@ -627,12 +627,42 @@ a {
 .menu__link {
   font-family: "Arial";
   line-height: 160%;
+  position: relative;
+  padding: 15px 0;
 }
 
 @media (max-width: 47.99em) {
   .menu__link {
     font-size: 2rem;
   }
+}
+
+.menu__link::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 12px;
+  width: 0%;
+  height: 3px;
+  background-color: #f1cdb3;
+  -webkit-transition: 0.4s ease-out;
+  transition: 0.4s ease-out;
+}
+
+.menu__link:hover::before {
+  content: "";
+  width: 100%;
+  left: 0;
+  -webkit-transition: 0.4s ease-in;
+  transition: 0.4s ease-in;
+}
+
+.menu__link.active::before {
+  content: "";
+  width: 100%;
+  left: 0;
+  -webkit-transition: 0.4s ease-in;
+  transition: 0.4s ease-in;
 }
 
 .menu__icon {
