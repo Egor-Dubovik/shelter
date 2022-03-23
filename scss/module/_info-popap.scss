@@ -1,62 +1,48 @@
 .info-popap {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 900px;
-	border-radius: 9px;
-	color: #000000;
-	background-color: #fafafa;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(41, 41, 41, 0.6);
 	z-index: 2;
-	@media (max-width: 80em) {
-		width: 70.469%;
-	}
-	@media (max-width: 48em) {
-		width: 82.031%;
-	}
-	@media (max-width: 30em) {
-		width: 240px;
-	}
-	&__container {
+	opacity: 0;
+	visibility: hidden;
+	transition: 0.5s ease-out 0s;
+	&__body {
+		min-height: 100vh;
 		display: flex;
-	}
-	&__btn-close {
-		position: absolute;
-		right: -43px;
-		top: -48px;
-		width: 52px;
-		height: 52px;
-		border: 2px solid $colorPrimary;
-		border-radius: 100px;
-		align-self: flex-end;
-		cursor: pointer;
-		transition: 0.5s ease;
-		@media (max-width: 30em) {
-			right: -30px;
-			top: -55px;
+		align-items: center;
+		justify-content: center;
+		padding: 30px 52px;
+		@media (max-width: 20em) {
+			padding: 30px 40px;
 		}
 	}
 
-	&__btn-close:hover {
-		border-color: $btnsHover;
-		background-color: $btnsHover;
-	}
-	&__btn-close svg {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
+	&__content {
+		position: relative;
+		display: flex;
+		max-width: 902px;
+		border-radius: 9px;
+		color: #000000;
+		background-color: #fafafa;
+		@media (max-width: 48em) {
+			max-width: 630px;
+		}
+		@media (max-width: 320px) {
+			width: 240px;
+		}
 	}
 
 	&__image {
 		position: relative;
-		flex: 0 0 57.35%;
-		margin-right: 15px;
-		padding-bottom: 57.35%;
+		flex: 0 0 55.433%;
+		padding-bottom: 55.433%;
 		align-self: flex-start;
 		@media (max-width: 48em) {
-			flex: 0 0 58.333%;
-			padding-bottom: 58.333%;
+			flex: 0 0 55.555%;
+			padding-bottom: 55.555%;
 			margin: 0;
 		}
 		@media (max-width: 36em) {
@@ -69,18 +55,19 @@
 			width: 100%;
 			height: 100%;
 			object-fit: contain;
+			border-radius: 9px;
 		}
 	}
 
 	&__data {
-		max-width: 350px;
 		flex: 1 1 auto;
-		padding: 50px 0 88px 0;
+		padding: 50px 23px 88px 30px;
 		@media (max-width: 62em) {
-			padding: 10px 0 37px 0;
+			padding: 10px 11px 37px 10px;
 		}
 		@media (max-width: 36em) {
 			margin: 0 auto;
+			padding: 10px;
 		}
 	}
 
@@ -103,7 +90,6 @@
 	}
 
 	&__description {
-		font-size: 15px;
 		margin-bottom: 2.5rem;
 		line-height: 110%;
 		letter-spacing: 0.06em;
@@ -138,4 +124,37 @@
 			font-weight: 700;
 		}
 	}
+	&__btn-close {
+		position: absolute;
+		right: -43px;
+		top: -48px;
+		width: 52px;
+		height: 52px;
+		background-color: #fafafa00;
+		border: 2px solid $colorPrimary;
+		border-radius: 100px;
+		align-self: flex-end;
+		cursor: pointer;
+		transition: 0.5s ease;
+		@media (max-width: 30em) {
+			right: -30px;
+			top: -55px;
+		}
+	}
+
+	&__btn-close:hover {
+		border-color: $btnsHover;
+		background-color: $btnsHover;
+	}
+	&__btn-close svg {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+}
+.info-popap.active {
+	opacity: 1;
+	visibility: visible;
+	transition: 0.5s ease-in 0.1s;
 }
