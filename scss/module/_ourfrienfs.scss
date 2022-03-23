@@ -61,6 +61,9 @@
 				display: none;
 			}
 		}
+		@media (max-width: 73.75em) {
+			column-gap: 2rem;
+		}
 		@media (max-width: 47.999em) {
 			column-gap: 1.25rem;
 		}
@@ -77,9 +80,15 @@
 		flex-direction: column;
 		align-items: center;
 		padding-bottom: 1.875rem; //30
-		background: #fafafa;
+		background-color: #fafafa;
 		border-radius: 9px;
+		transition: 0.5s ease;
+		cursor: pointer;
 	}
+	&__slide:hover {
+		background-color: #ffffff;
+	}
+
 	&__slide :not(:last-child) {
 		margin-bottom: 1.875rem;
 	}

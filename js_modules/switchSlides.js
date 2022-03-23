@@ -1,5 +1,6 @@
 import { arrPets } from "./arrPets.js";
 
+let cloneArrPets = [...arrPets];
 const sliderBtns = document.querySelectorAll(".slider__btn");
 const wrapers = document.querySelectorAll(".slider__wraper");
 const firstSliderWraper = document.querySelector(".slider__wraper_first");
@@ -11,6 +12,7 @@ let pushFirstWraper = true;
 const createSlide = (src, name) => {
 	const slide = document.createElement("div");
 	slide.className = "slider__slide";
+	slide.dataset.petName = name;
 	const divImage = document.createElement("div");
 	divImage.className = "slider__slide-image";
 	const image = document.createElement("img");
@@ -22,7 +24,7 @@ const createSlide = (src, name) => {
 	const btn = document.createElement("button");
 	btn.className = "slider__slide-btn";
 	btn.textContent = `Learn more`;
-	btn.dataset.petName = name;
+
 
 	divImage.append(image);
 	slide.append(divImage);
@@ -39,8 +41,8 @@ function randomNum(min, max) {
 };
 
 const getRandomPets = () => {
-	let randNum = randomNum(0, arrPets.length - 1);
-	let randPet = arrPets.splice(randNum, 1);
+	let randNum = randomNum(0, cloneArrPets.length - 1);
+	let randPet = cloneArrPets.splice(randNum, 1);
 	arrShowSlides.push(randPet);
 
 	if (count >= 2) {
@@ -54,7 +56,7 @@ const getRandomPets = () => {
 const addSlides = (wraper) => {
 	getRandomPets();
 	if (arrShowSlides.length >= 6) {
-		arrShowSlides.splice(0, 3).forEach(el => arrPets.push(el));
+		arrShowSlides.splice(0, 3).forEach(el => cloneArrPets.push(el));
 	}
 
 	arrShowSlides = arrShowSlides.flat();
