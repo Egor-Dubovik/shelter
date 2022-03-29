@@ -11,7 +11,7 @@ let pushFirstWraper = true;
 
 const createSlide = (src, name) => {
 	const slide = document.createElement("div");
-	slide.className = "slider__slide";
+	slide.className = "slider__slide pet-item";
 	slide.dataset.petName = name;
 	const divImage = document.createElement("div");
 	divImage.className = "slider__slide-image";

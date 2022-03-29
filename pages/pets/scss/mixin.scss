@@ -1,3 +1,0 @@
-@mixin adaptiv-value($propety, $startSize, $minSize, $type) {
-	#{$propety}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
-}

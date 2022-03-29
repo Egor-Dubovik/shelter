@@ -12,6 +12,7 @@ const btnPopapClose = document.querySelector('.info-popap__btn-close');
 const sliderBtns = document.querySelectorAll(".slider__btn");
 const body = document.querySelector("body");
 const lockPadding = document.querySelectorAll(".lock-padding");
+
 const lockPaddingValue = window.innerWidth - document.querySelector(".wraper").offsetWidth + "px";
 
 
@@ -33,6 +34,7 @@ function insertPopapInfo(name) {
 function showPopap(slide) {
 	if (lockPadding.length > 0) {
 		for (let i = 0; i < lockPadding.length; i++) {
+			console.log(lockPadding[i]);
 			lockPadding[i].style.paddingRight = lockPaddingValue;
 		}
 	}
@@ -53,14 +55,12 @@ function closePopap() {
 
 
 export const switchPopap = () => {
-	const slides = document.querySelectorAll(".slider__slide");
-
+	const slides = document.querySelectorAll(".pet-item");
 	slides.forEach(slide => {
 		slide.addEventListener("click", () => {
 			showPopap(slide);
 		});
 	});
-
 	btnPopapClose.addEventListener("click", closePopap);
 
 	document.addEventListener("mousedown", (e) => {
@@ -71,5 +71,5 @@ export const switchPopap = () => {
 }
 
 sliderBtns.forEach(btn => {
-	btn.addEventListener("click", showPopap);
+	btn.addEventListener("click", switchPopap);
 });
