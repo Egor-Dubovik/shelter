@@ -824,6 +824,31 @@ a {
   margin: 0 auto;
 }
 
+.main .our-friends .animate {
+  -webkit-animation: switching 1s;
+          animation: switching 1s;
+  -webkit-transition: 1s ease;
+  transition: 1s ease;
+}
+
+@-webkit-keyframes switching {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes switching {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .main .pet-item {
   display: -webkit-box;
   display: -ms-flexbox;

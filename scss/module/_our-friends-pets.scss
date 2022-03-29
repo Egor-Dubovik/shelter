@@ -45,6 +45,21 @@
 		margin: 0 auto;
 	}
 }
+
+.our-friends .animate {
+	animation: switching 1s;
+	transition: 1s ease;
+}
+
+@keyframes switching {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
 .pet-item {
 	display: flex;
 	flex-direction: column;
@@ -127,11 +142,4 @@
 	color: #cdcdcd;
 	border-color: #cdcdcd;
 	pointer-events: none;
-}
-
-.pagination__btn_begin {
-	// transform: rotate(180deg);
-}
-.pagination__btn_prev {
-	// transform: rotate(180deg);
 }

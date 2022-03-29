@@ -97,9 +97,16 @@ const createItemPet = (src, name) => {
 
 let currentPage = 0;
 let amountPage = 0;
+let animationSwitchPage = true;
 
 function innerItems(startNum, endNum) {
 	ourFriendsContent.innerHTML = '';
+	if (animationSwitchPage) {
+		ourFriendsContent.classList.add("animate");
+		setTimeout(() => {
+			ourFriendsContent.classList.remove("animate");
+		}, 1000);
+	}
 
 	for (let i = startNum; i < endNum; i++) {
 		const srcPet = randomPetsArr[i].img;
@@ -142,13 +149,22 @@ function removeLockPaginationBtns(arrBtns) {
 	arrBtns.forEach(btn => btn.classList.remove("lock-btn"));
 }
 
-paginationWraper.addEventListener("click", turnThePages);
+paginationWraper.addEventListener("click", (e) => {
+	turnThePages(e);
+	paginationWraper.style.pointerEvents = "none";
+	setTimeout(() => {
+		paginationWraper.style.pointerEvents = "auto";
+	}, 800)
+});
 
 
 function turnThePages(e) {
+	animationSwitchPage = false;
+
 	if (e.target.classList.contains("pagination__btn_next")) {
 		removeLockPaginationBtns([paginationBtnPrev, paginationBtnBegin]);
 		currentPage++;
+		animationSwitchPage = true;
 
 		if (amountPage * currentPage >= randomPetsArr.length) {
 			addLockPaginationBtns([paginationBtnEnd, paginationBtnNext]);
@@ -157,6 +173,7 @@ function turnThePages(e) {
 	} else if (e.target.classList.contains("pagination__btn_prev")) {
 		removeLockPaginationBtns([paginationBtnEnd, paginationBtnNext]);
 		currentPage--;
+		animationSwitchPage = true;
 
 		if (amountPage * currentPage <= amountPage) {
 			addLockPaginationBtns([paginationBtnPrev, paginationBtnBegin]);
@@ -168,6 +185,7 @@ function turnThePages(e) {
 			currentPage++;
 		}
 		addLockPaginationBtns([paginationBtnEnd, paginationBtnNext]);
+		animationSwitchPage = true;
 	} else if (e.target.classList.contains("pagination__btn_begin")) {
 		removeLockPaginationBtns([paginationBtnEnd, paginationBtnNext]);
 
@@ -175,6 +193,7 @@ function turnThePages(e) {
 			currentPage--;
 		}
 		addLockPaginationBtns([paginationBtnPrev, paginationBtnBegin]);
+		animationSwitchPage = true;
 	}
 
 	innerItems(amountPage * (currentPage - 1), amountPage * currentPage);
