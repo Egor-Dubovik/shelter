@@ -1,5 +1,5 @@
-import { switchMenu } from "../../js_modules/_menuSwitching.js";
-import { switchPopap } from "../../js_modules/_switchPopap.js";
+import { switchMenu } from "../../js_modules/menuSwitching.js";
+import { switchPopap } from "../../js_modules/switchPopap.js";
 
 
 switchMenu();

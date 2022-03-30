@@ -1,7 +1,7 @@
-import { switchMenu } from "../../js_modules/_menuSwitching.js";
-import { changeViewHeader } from "../../js_modules/_changeViewHeader.js";
-import { switchPopap } from "../../js_modules/_switchPopap.js";
-import { scrollToblock, scrollDecorationLink } from "../../js_modules/_scrollToBlock.js";
+import { switchMenu } from "../../js_modules/menuSwitching.js";
+import { changeViewHeader } from "../../js_modules/changeViewHeader.js";
+import { switchPopap } from "../../js_modules/switchPopap.js";
+import { scrollToblock, scrollDecorationLink } from "../../js_modules/scrollToBlock.js";
 
 changeViewHeader();
 scrollToblock();
