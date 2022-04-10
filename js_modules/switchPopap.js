@@ -34,7 +34,6 @@ function insertPopapInfo(name) {
 function showPopap(slide) {
 	if (lockPadding.length > 0) {
 		for (let i = 0; i < lockPadding.length; i++) {
-			console.log(lockPadding[i]);
 			lockPadding[i].style.paddingRight = lockPaddingValue;
 		}
 	}
