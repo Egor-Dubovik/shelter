@@ -66,6 +66,7 @@
 	align-items: center;
 	padding-bottom: 30px;
 	background-color: #fafafa;
+	border-radius: 9px;
 	cursor: pointer;
 	:not(:last-child) {
 		margin-bottom: 30px;
@@ -74,6 +75,7 @@
 		width: 100%;
 		padding-bottom: 100%;
 		position: relative;
+		
 		img {
 			position: absolute;
 			top: 0;
@@ -81,6 +83,7 @@
 			width: 100%;
 			height: 100%;
 			object-fit: contain;
+			border-radius: 9px;
 		}
 	}
 
@@ -95,10 +98,14 @@
 		background-color: #f6f6f6;
 		transition: 0.3s ease;
 	}
-	&__btn:hover {
-		border-color: $btnsHover;
-		background-color: $btnsHover;
-	}
+}
+.pet-item:hover {
+	background: #FFFFFF;
+	box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+}
+.pet-item:hover .pet-item__btn{
+	border-color: $btnsHover;
+	background-color: $btnsHover;
 }
 .pagination {
 	max-width: 340px;

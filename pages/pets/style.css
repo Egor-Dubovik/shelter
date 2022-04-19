@@ -862,6 +862,7 @@ a {
           align-items: center;
   padding-bottom: 30px;
   background-color: #fafafa;
+  border-radius: 9px;
   cursor: pointer;
 }
 
@@ -883,6 +884,7 @@ a {
   height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
+  border-radius: 9px;
 }
 
 .main .pet-item__btn {
@@ -898,7 +900,13 @@ a {
   transition: 0.3s ease;
 }
 
-.main .pet-item__btn:hover {
+.main .pet-item:hover {
+  background: #FFFFFF;
+  -webkit-box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+          box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+}
+
+.main .pet-item:hover .pet-item__btn {
   border-color: #fddcc4;
   background-color: #fddcc4;
 }
