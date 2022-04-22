@@ -15,7 +15,6 @@ const paginationBtnPrev = document.querySelector(".pagination__btn_prev");
 const paginationBtnBegin = document.querySelector(".pagination__btn_begin");
 
 let cloneArrPets = [...arrPets];
-let prev8ItemsArr = [];
 let randomPetsArr = [];
 
 
@@ -37,11 +36,9 @@ const createRandomPetsArr = (amountCards = 8) => {
 					cloneArrPets.push(pet);
 				}
 			})
-			prev8ItemsArr.length = 0;
 		}
 
 		randomPetsArr.push(randomPet[0]);
-		prev8ItemsArr.push(randomPet[0]);
 	}
 }
 
@@ -118,7 +115,6 @@ const showCurrentPage = () => {
 showCurrentPage();
 
 window.addEventListener("resize", () => {
-	prev8ItemsArr.length = 0;
 	randomPetsArr.length = 0;
 	showCurrentPage();
 });
