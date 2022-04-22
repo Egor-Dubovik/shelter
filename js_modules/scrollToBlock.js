@@ -25,15 +25,9 @@ export function scrollDecorationLink() {
 		let currentSection = "";
 
 		sections.forEach(section => {
-			let sectionTop = "";
+			let offsetTop = section.offsetTop;
 
-			if (section.id === "contacts") {
-				sectionTop = section.offsetTop - 50;
-			} else {
-				sectionTop = section.offsetTop;
-			}
-
-			if (window.pageYOffset >= sectionTop - 80) {
+			if (window.pageYOffset >= offsetTop - 80) {
 				currentSection = section.getAttribute("id");
 			}
 		});
