@@ -1,15 +1,10 @@
 import { switchMenu } from "../../js_modules/menuSwitching.js";
 import { switchPopap } from "../../js_modules/switchPopap.js";
-
+import { arrPets } from "../../js_modules/arrPets.js";
 
 switchMenu();
+switchPopap();
 
-
-
-
-
-
-import { arrPets } from "../../js_modules/arrPets.js";
 const paginationWraper = document.querySelector(".pagination__wraper");
 const ourFriendsContent = document.querySelector(".our-friends__content");
 const paginationCurrentPage = document.querySelector(".pagination__btn_current-page");
@@ -24,51 +19,31 @@ let prev8ItemsArr = [];
 let randomPetsArr = [];
 
 
-let temporaryArr = [];
-
-
+//** creation function  -------------------------------------------------------------------
 function randomNum(min, max) {
 	// случайное число от min до (max+1)
 	let rand = min + Math.random() * (max + 1 - min);
 	return Math.floor(rand);
 };
 
+const createRandomPetsArr = (amountCards = 8) => {
+	for (let i = 0; i < 48; i++) {
+		const currentIndex = randomNum(0, cloneArrPets.length - 1);
+		const randomPet = cloneArrPets.splice(currentIndex, 1);
 
-
-const createItems = () => {
-
-	if (prev8ItemsArr.length < 8) {
-		randomPetsArr = [...cloneArrPets];
-		prev8ItemsArr = [...cloneArrPets];
-	} else {
-		for (let i = 0; i < 8; i++) {
-			if (randomPetsArr.length >= 48) break;
-			const currentIndex = randomNum(0, cloneArrPets.length - 1);
-			const randomPet = cloneArrPets.splice(currentIndex, 1);
-
-			if (prev8ItemsArr[i].name === randomPet[0].name) {
-				temporaryArr.push(randomPet[0])
-				continue; // !!!!!!
-			} else {
-				randomPetsArr.push(randomPet[0]);
-				prev8ItemsArr.push(randomPet[0]);
-			}
+		if (cloneArrPets.length <= arrPets.length - amountCards) {
+			arrPets.forEach(pet => {
+				if (!cloneArrPets.some(clonePet => clonePet.name === pet.name)) {
+					cloneArrPets.push(pet);
+				}
+			})
+			prev8ItemsArr.length = 0;
 		}
-	}
-	randomPetsArr = randomPetsArr.concat(temporaryArr);
-	temporaryArr.length = 0;
 
-	cloneArrPets = [...arrPets];
-
-
-	if (randomPetsArr.length < 48) {
-		createItems();
-	} else {
-		randomPetsArr = randomPetsArr.flat()
+		randomPetsArr.push(randomPet[0]);
+		prev8ItemsArr.push(randomPet[0]);
 	}
 }
-createItems();
-
 
 
 const createItemPet = (src, name) => {
@@ -95,8 +70,9 @@ const createItemPet = (src, name) => {
 	return item
 };
 
+//** inner Items -------------------------------------------------------------------
 let currentPage = 0;
-let amountPage = 0;
+let amountCards = 0;
 let animationSwitchPage = true;
 
 function innerItems(startNum, endNum) {
@@ -116,29 +92,36 @@ function innerItems(startNum, endNum) {
 	paginationCurrentPage.textContent = currentPage;
 }
 
-
-
+//** Pagination -------------------------------------------------------------------
 const showCurrentPage = () => {
-	let width = window.innerWidth;
+	let width = document.documentElement.clientWidth;
 	currentPage = 1;
 
 	removeLockPaginationBtns(paginationBtns);
 	addLockPaginationBtns([paginationBtnPrev, paginationBtnBegin]);
 
 	if (width >= 1230) {
-		amountPage = 8;
+		amountCards = 8;
+		createRandomPetsArr(amountCards)
 		innerItems(0, 8);
 	} else if (width >= 576) {
-		amountPage = 6;
+		amountCards = 6;
+		createRandomPetsArr(amountCards)
 		innerItems(0, 6);
 	} else {
-		amountPage = 3;
+		amountCards = 3;
+		createRandomPetsArr(amountCards)
 		innerItems(0, 3);
 	}
 	switchPopap();
 }
 showCurrentPage();
-window.addEventListener("resize", showCurrentPage);
+
+window.addEventListener("resize", () => {
+	prev8ItemsArr.length = 0;
+	randomPetsArr.length = 0;
+	showCurrentPage();
+});
 
 
 function addLockPaginationBtns(arrBtns) {
@@ -166,22 +149,21 @@ function turnThePages(e) {
 		currentPage++;
 		animationSwitchPage = true;
 
-		if (amountPage * currentPage >= randomPetsArr.length) {
+		if (amountCards * currentPage >= randomPetsArr.length) {
 			addLockPaginationBtns([paginationBtnEnd, paginationBtnNext]);
 		}
-
 	} else if (e.target.classList.contains("pagination__btn_prev")) {
 		removeLockPaginationBtns([paginationBtnEnd, paginationBtnNext]);
 		currentPage--;
 		animationSwitchPage = true;
 
-		if (amountPage * currentPage <= amountPage) {
+		if (amountCards * currentPage <= amountCards) {
 			addLockPaginationBtns([paginationBtnPrev, paginationBtnBegin]);
 		}
 	} else if (e.target.classList.contains("pagination__btn_end")) {
 		removeLockPaginationBtns([paginationBtnPrev, paginationBtnBegin]);
 
-		while (amountPage * currentPage < randomPetsArr.length) {
+		while (amountCards * currentPage < randomPetsArr.length) {
 			currentPage++;
 		}
 		addLockPaginationBtns([paginationBtnEnd, paginationBtnNext]);
@@ -189,18 +171,16 @@ function turnThePages(e) {
 	} else if (e.target.classList.contains("pagination__btn_begin")) {
 		removeLockPaginationBtns([paginationBtnEnd, paginationBtnNext]);
 
-		while (amountPage * currentPage > amountPage) {
+		while (amountCards * currentPage > amountCards) {
 			currentPage--;
 		}
 		addLockPaginationBtns([paginationBtnPrev, paginationBtnBegin]);
 		animationSwitchPage = true;
 	}
 
-	innerItems(amountPage * (currentPage - 1), amountPage * currentPage);
-	switchPopap();
+	innerItems(amountCards * (currentPage - 1), amountCards * currentPage);
 }
 
 
 
 
-switchPopap();
