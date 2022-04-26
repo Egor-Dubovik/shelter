@@ -3,7 +3,6 @@ import { switchPopap } from "../../js_modules/switchPopap.js";
 import { arrPets } from "../../js_modules/arrPets.js";
 
 switchMenu();
-switchPopap();
 
 const paginationWraper = document.querySelector(".pagination__wraper");
 const ourFriendsContent = document.querySelector(".our-friends__content");
@@ -175,6 +174,7 @@ function turnThePages(e) {
 	}
 
 	innerItems(amountCards * (currentPage - 1), amountCards * currentPage);
+	switchPopap();
 }
 
 

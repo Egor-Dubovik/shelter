@@ -72,3 +72,12 @@ export const switchPopap = () => {
 sliderBtns.forEach(btn => {
 	btn.addEventListener("click", switchPopap);
 });
+
+// добовили background кнопке, если мышь вне попапа 
+document.body.onmousemove = (e) => {
+	if (e.target.closest(".info-popap__content")) {
+		btnPopapClose.style.backgroundColor = "";
+	} else {
+		btnPopapClose.style.backgroundColor = "#fddcc4";
+	}
+};
